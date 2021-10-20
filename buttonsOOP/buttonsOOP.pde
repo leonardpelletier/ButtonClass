@@ -1,11 +1,8 @@
 //Len Pelletier
 //Oct 20, 2021
 //Button class
-
 boolean mouseReleased;
-boolean hadPressed;
-
-
+boolean wasPressed;
 
 Button blueButton, greenButton, pinkButton, blackButton;
 color bkg;
@@ -28,13 +25,9 @@ void setup() {
 }
 
 void draw() {
-  
-  if (mousePressed) hadPressed = true;
-  if (hadPressed && !mousePressed) {
-     mouseReleased = true;
-     hadPressed = false;
-  }
-  
+  //mousePressed
+  //!mousePressed
+  click();
   
   
   background(bkg);
@@ -54,5 +47,15 @@ void draw() {
   }
   if (blackButton.clicked) {
      bkg = black; 
+  }
+}
+
+
+void click() {
+  mouseReleased = false;
+  if (mousePressed) wasPressed = true;
+  if (wasPressed && !mousePressed) {
+    mouseReleased = true;
+    wasPressed = false;
   }
 }
